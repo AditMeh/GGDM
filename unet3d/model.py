@@ -1,8 +1,8 @@
 import torch.nn as nn
 
-from pytorch3dunet.unet3d.buildingblocks import DoubleConv, ExtResNetBlock, create_encoders, \
+from unet3d.buildingblocks import DoubleConv, ExtResNetBlock, create_encoders, \
     create_decoders
-from pytorch3dunet.unet3d.utils import number_of_features_per_level, get_class
+from unet3d.utils import number_of_features_per_level, get_class
 
 
 class Abstract3DUNet(nn.Module):
