@@ -35,7 +35,7 @@ def compute_schedule(T, beta_min, beta_max):
     return hparams
 
 
-def generate_img(net, T, img_shape, hparams):
+def generate_img(net, T, img_shape, hparams, device):
     net.eval()
     with torch.no_grad():
         seed = torch.randn(1, *img_shape).to(device=device)
@@ -138,7 +138,7 @@ if __name__ == "__main__":
     for key, value in hparams.items():
         hparams[key] = hparams[key].to(device)
 
-    result = generate_img(net, T, data_shape, hparams)
+    result = generate_img(net, T, data_shape, hparams, device)
 
     final = torch.squeeze(result).cpu().detach().numpy()
 

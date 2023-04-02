@@ -1,0 +1,14 @@
+generate_pointclouds.py:45: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  point_cloud = np.array(point_cloud)
+generate_pointclouds.py:37: RuntimeWarning: divide by zero encountered in long_scalars
+  points_per_voxel = 2048 // pc.sum()
+generate_pointclouds.py:37: RuntimeWarning: divide by zero encountered in long_scalars
+  points_per_voxel = 2048 // pc.sum()
+compute_priors.py:49: RuntimeWarning: invalid value encountered in true_divide
+  d[c] = data / len(category_filepaths[c])
+Traceback (most recent call last):
+  File "graph.py", line 11, in <module>
+    ax.voxels(data, facecolors=colors, edgecolor='k')
+  File "/pkgs/anaconda3/lib/python3.7/site-packages/mpl_toolkits/mplot3d/axes3d.py", line 2945, in voxels
+    p1 = permute.dot([p, q, r1])
+KeyboardInterrupt

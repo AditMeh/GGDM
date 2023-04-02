@@ -6,8 +6,8 @@ import binvox_rw
 from collections import defaultdict
 # Store mapping from directory hash to class type, can get from the .json?
 HASH_TO_CLASS = {}
-PRIOR_DIR = "priors/"
-
+PRIOR_DIR = "priors_small/"
+SIZE=32
 
 """
 Returns a dict that look like:
@@ -41,7 +41,7 @@ Returns a dict that look like:
 def compute_priors(category_filepaths):
     d = dict()
     for c in category_filepaths:
-        data = np.zeros((32,32,32))
+        data = np.zeros((SIZE,SIZE,SIZE))
         for f in category_filepaths[c]:
             m1 = binvox_rw.read_as_3d_array(open(f, 'rb'))
             data += np.transpose(m1.data, (0, 2, 1)).astype(np.float32)
@@ -62,7 +62,7 @@ Use HASH_TO_CLASS here.
 
 def save_priors(category_priors):
     for c in category_priors:
-        np.save('{}.npy'.format(c), category_priors[c])
+        np.save('{}/{}.npy'.format(PRIOR_DIR, c), category_priors[c])
 
 
 if __name__ == "__main__":
