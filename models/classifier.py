@@ -50,7 +50,7 @@ class LeNet5(nn.Module):
         return output
 
 
-def load_classifier_model(path='/voyager/projects/aditya/DDPM-sandbox/lenet_epoch=12_test_acc=0.989.pth'):
+def load_classifier_model(path='/voyager/projects/aditya/Prior-Conditional-3D-Diffusion/checkpoints/lenet_epoch=12_test_acc=0.989.pth'):
     device = (torch.device('cuda') if torch.cuda.is_available()
             else torch.device('cpu'))
     model = LeNet5().to(device=device)

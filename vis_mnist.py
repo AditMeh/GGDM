@@ -6,10 +6,10 @@ import matplotlib.pyplot as plt
 
 from torch.optim import Adam
 from torch.utils.data import TensorDataset
-from unet_sandbox import NaiveUnet
-from unet_labml import UNet
-from cnn_generator import create_network
-from mnist import create_dataloaders
+# from unet_sandbox import NaiveUnet
+from models.unet_labml import UNet
+
+from dataloaders.mnist import create_dataloaders
 
 import torchvision.transforms.transforms as transforms
 from torchvision.datasets import MNIST
@@ -17,7 +17,7 @@ from torch.utils.data import DataLoader
 from torchvision.utils import save_image
 
 
-from classifier import load_classifier_model
+from models.classifier import load_classifier_model
 
 import imageio
 import os
@@ -253,7 +253,9 @@ def sample_chain(net, classifier, T, beta_min, beta_max, img_shape, device):
 
         # Compute x_t-1 = x_t-1 - gradient of loss w.r.t x_t-1
 
+
         seed = seed - gradient
+
         # chain_samples.append(seed)
 
         classifier.zero_grad()
@@ -293,7 +295,7 @@ if __name__ == "__main__":
     # net = AltUnet().to(device=device)
     net = UNet(image_channels=1, n_blocks=1, is_attn=(
         False, False, True, True)).to(device)
-    net.load_state_dict(torch.load("mnist_model.pt", map_location=device))
+    net.load_state_dict(torch.load("checkpoints/mnist_model.pt", map_location=device))
     net.eval()
     classifier = load_classifier_model()
     classifier.eval()
