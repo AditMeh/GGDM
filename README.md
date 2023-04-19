@@ -1,2 +1,1 @@
-# Prior-Conditional-3D-Diffusion
-Prior Conditional 3D Diffusion
+# GGDM: Gradient-Guided Diffusion Models
