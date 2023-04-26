@@ -2,6 +2,9 @@
 
 ![alt text](https://github.com/AditMeh/GGDM/blob/gradient_guided_diffusion/MNIST_PNG.png?raw=true)
 
+Our report can be found [here](https://github.com/AditMeh/GGDM/blob/gradient_guided_diffusion/Project_Report.pdf)
+
+
 ## Requirements:
 - matplotlib
 - torch
